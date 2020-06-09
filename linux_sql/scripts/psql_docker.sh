@@ -32,7 +32,6 @@ if [ "$command" == "create" ]; then
   fi
 
   # Create the psql container with pgdata volume
-  docker volume create pgdata
   docker run --name $CONTAINER_NAME -e POSTGRES_PASSWORD=${db_password} -e POSTGRES_USER=${db_username} -d -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
   exit $?
 fi
