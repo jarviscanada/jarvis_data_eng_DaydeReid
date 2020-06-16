@@ -36,7 +36,7 @@ public class JavaGrepImplementation implements JavaGrep {
     try {
       javaGrep.process();
     } catch (Exception ex) {
-      javaGrep.logger.error(ex.getMessage(), ex);
+      javaGrep.logger.error("Failed to start grep process", ex);
     }
   }
 
@@ -101,7 +101,7 @@ public class JavaGrepImplementation implements JavaGrep {
         lineList.add(line);
       }
     } catch (IOException ex) {
-      this.logger.error(ex.getMessage(), ex);
+      this.logger.error("Failed to create buffered reader", ex);
     }
     return lineList;
   }
@@ -134,7 +134,7 @@ public class JavaGrepImplementation implements JavaGrep {
         bufferWriter.newLine();
       }
     } catch (IOException ex) {
-      this.logger.error(ex.getMessage(), ex);
+      this.logger.error("Failed to create buffered writer", ex);
     }
 
   }
