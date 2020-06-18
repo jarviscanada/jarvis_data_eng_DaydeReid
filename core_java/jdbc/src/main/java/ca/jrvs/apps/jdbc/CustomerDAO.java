@@ -11,12 +11,11 @@ import org.slf4j.LoggerFactory;
 
 public class CustomerDAO extends DataAccessObject<Customer> {
 
+  final static Logger logger = LoggerFactory.getLogger(JDBCExecutor.class);
   private static final String INSERT = "INSERT INTO customer (first_name, last_name, email, phone, address, city, state, zipcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
   private static final String GET_ONE = "SELECT customer_id, first_name, last_name, email, phone, address, city, state, zipcode FROM customer WHERE customer_id=?";
   private static final String UPDATE = "UPDATE customer SET first_name=?, last_name=?, email=?, phone=?, address=?, city=?, state=?, zipcode=? WHERE customer_id=?";
   private static final String DELETE = "DELETE FROM customer WHERE customer_id=?";
-
-  final static Logger logger = LoggerFactory.getLogger(JDBCExecutor.class);
 
   public CustomerDAO(Connection connection) {
     super(connection);
@@ -54,6 +53,12 @@ public class CustomerDAO extends DataAccessObject<Customer> {
   @Override
   public Customer update(Customer dto) {
     Customer customer = null;
+    try {
+      this.connection.setAutoCommit(false);
+    } catch (SQLException ex) {
+      this.logger.error("Failed to disable auto commit", ex);
+      throw new RuntimeException(ex);
+    }
     try (PreparedStatement statement = this.connection.prepareStatement(UPDATE)) {
       statement.setString(1, dto.getFirstName());
       statement.setString(2, dto.getLastName());
@@ -65,8 +70,15 @@ public class CustomerDAO extends DataAccessObject<Customer> {
       statement.setString(8, dto.getZipCode());
       statement.setLong(9, dto.getId());
       statement.execute();
+      this.connection.commit();
       customer = this.findById(dto.getId());
     } catch (SQLException ex) {
+      try {
+        this.connection.rollback();
+      } catch (SQLException rollbackEx) {
+        this.logger.error("Failed to rollback update", rollbackEx);
+        throw new RuntimeException(rollbackEx);
+      }
       this.logger.error("Failed to perform SQL query", ex);
       throw new RuntimeException(ex);
     }
