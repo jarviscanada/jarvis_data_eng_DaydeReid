@@ -48,14 +48,14 @@ public class JavaGrepImplementation implements JavaGrep {
   @Override
   public void process() throws IOException {
     List matchedLines = new ArrayList<String>();
-    for (File file : this.listFiles(this.getRootPath())) {
-      for (String line : this.readLines(file)) {
+    for (File file : listFiles(getRootPath())) {
+      for (String line : readLines(file)) {
         if (containsPattern(line)) {
           matchedLines.add(line);
         }
       }
     }
-    this.writeToFile(matchedLines);
+    writeToFile(matchedLines);
   }
 
   /**
@@ -101,7 +101,7 @@ public class JavaGrepImplementation implements JavaGrep {
         lineList.add(line);
       }
     } catch (IOException ex) {
-      this.logger.error("Failed to create buffered reader", ex);
+      logger.error("Failed to create buffered reader", ex);
     }
     return lineList;
   }
@@ -134,7 +134,7 @@ public class JavaGrepImplementation implements JavaGrep {
         bufferWriter.newLine();
       }
     } catch (IOException ex) {
-      this.logger.error("Failed to create buffered writer", ex);
+      logger.error("Failed to create buffered writer", ex);
     }
 
   }

@@ -1,6 +1,7 @@
 .idea
 intellij-java-google-style.xml
 *.iml
-core_java/grep/target
-core_java/jdbc/target
-core_java/twitter/target
+*.class
+*.jar
+*.lst
+target/
