@@ -1,1 +1,7 @@
 .idea
+intellij-java-google-style.xml
+*.iml
+*.class
+*.jar
+*.lst
+target/
