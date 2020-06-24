@@ -33,7 +33,7 @@ public class TwitterDaoUnitTest {
   @Test
   public void create() throws Exception {
     String hashtag = "#abc";
-    String text = "@someone some text " + hashtag + " " + System.currentTimeMillis();
+    String text = "some text " + hashtag + " " + System.currentTimeMillis();
     Double lat = 1d;
     Double lon = -1d;
 
