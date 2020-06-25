@@ -56,7 +56,6 @@ public class TwitterServiceIntTest {
 
   @Test
   public void postTweet() {
-    logger.debug("test");
     String hashtag = "#abc";
     String text = "some text " + hashtag + " " + System.currentTimeMillis();
     Double lat = 1d;
