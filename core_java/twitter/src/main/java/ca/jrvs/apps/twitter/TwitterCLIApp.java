@@ -13,10 +13,12 @@ import ca.jrvs.apps.twitter.util.JsonUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TwitterCLIApp {
 
-  private Controller controller;
+  private final Controller controller;
 
   @Autowired
   public TwitterCLIApp(Controller controller) {
@@ -41,9 +43,10 @@ public class TwitterCLIApp {
   }
 
   public void run(String[] args) {
-    if(args.length != 2 && args.length != 3)
+    if (args.length != 2 && args.length != 3) {
       throw new IllegalArgumentException("USAGE: TwitterCLIApp post|show|delete [options]");
-    switch(args[0]) {
+    }
+    switch (args[0]) {
       case "post":
         Tweet postedTweet = controller.postTweet(args);
         printTweet(postedTweet);

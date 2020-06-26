@@ -7,9 +7,10 @@ import java.util.Arrays;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
+@org.springframework.stereotype.Service
 public class TwitterService implements Service {
 
-  private CrdDao dao;
+  private final CrdDao dao;
 
   @Autowired
   public TwitterService(CrdDao dao) {
@@ -63,9 +64,11 @@ public class TwitterService implements Service {
   private void validateTweet(Tweet tweet) throws IllegalArgumentException {
     if (tweet.getText().length() > 140) {
       throw new IllegalArgumentException("Tweet text cannot be longer than 140 characters");
-    } else if (tweet.getCoordinates().getCoordinates().get(0) > 180 || tweet.getCoordinates().getCoordinates().get(0) < -180) {
+    } else if (tweet.getCoordinates().getCoordinates().get(0) > 180
+        || tweet.getCoordinates().getCoordinates().get(0) < -180) {
       throw new IllegalArgumentException("Longitude must be in range [-180, 180]");
-    } else if (tweet.getCoordinates().getCoordinates().get(1) > 90 || tweet.getCoordinates().getCoordinates().get(0) < -90) {
+    } else if (tweet.getCoordinates().getCoordinates().get(1) > 90
+        || tweet.getCoordinates().getCoordinates().get(0) < -90) {
       throw new IllegalArgumentException("Latitude must be in range [-90, 90]");
     }
   }
@@ -74,7 +77,7 @@ public class TwitterService implements Service {
     try {
       Long.parseLong(id);
     } catch (NumberFormatException ex) {
-      throw new IllegalArgumentException("ID "+ id +" is invalid");
+      throw new IllegalArgumentException("ID " + id + " is invalid");
     }
   }
 }
