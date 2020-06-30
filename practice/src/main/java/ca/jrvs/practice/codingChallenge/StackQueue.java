@@ -6,7 +6,7 @@ import java.util.Stack;
 
 /**
  * Class containing implementations of a queue using only stacks
- * Relevant Ticket: https://www.notion.so/String-to-Integer-atoi-82ec747728674a5d8651dfe1addadd99
+ * Relevant Ticket: https://www.notion.so/Implement-Queue-using-Stacks-5d98d3b77b894e8f9ff586c207186e02
  */
 public class StackQueue {
 

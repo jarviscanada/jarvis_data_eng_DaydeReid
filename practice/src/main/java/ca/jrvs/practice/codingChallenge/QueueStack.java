@@ -5,7 +5,7 @@ import java.util.Queue;
 
 /**
  * Class containing implementations of a stack using only queues
- * Relevant Ticket: https://www.notion.so/String-to-Integer-atoi-82ec747728674a5d8651dfe1addadd99
+ * Relevant Ticket: https://www.notion.so/Implement-Stack-using-Queue-ab6dcb69a97e492db69ff0a3c9d41061
  */
 public class QueueStack {
 
