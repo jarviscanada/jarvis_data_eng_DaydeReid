@@ -103,11 +103,14 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
     List<IexQuote> quoteList = new ArrayList<>();
     JSONObject jsonObj = new JSONObject(responseString);
     tickers.forEach(s -> {
-      if(!jsonObj.has(s)) {
-        throw new IllegalArgumentException("ERROR: List contained invalid tickers");
+      if (!jsonObj.has(s.toUpperCase())) {
+        throw new IllegalArgumentException("ERROR: Ticker " + s + " is invalid");
       }
       try {
-        quoteList.add(JsonUtil.toObjectFromJson(jsonObj.getJSONObject(s).getString("quote"), IexQuote.class));
+        quoteList.add(JsonUtil
+            .toObjectFromJson(
+                jsonObj.getJSONObject(s.toUpperCase()).getJSONObject("quote").toString(),
+                IexQuote.class));
       } catch (IOException ex) {
         logger.error("ERROR: Failed to convert JSON to object", ex);
       }
