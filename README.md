@@ -15,8 +15,8 @@ I am a recent graduate of the University of Toronto, where I earned my Honours B
 Project source code: [https://github.com/jarviscanada/jarvis_data_eng_DaydeReid](https://github.com/jarviscanada/jarvis_data_eng_DaydeReid)
 
 - **[Cluster Monitor](./linux_sql)**: Implemented a series of bash scripts that record hardware specifications and usage statistics for a Linux cluster and write them to a PSQL database contained in a Docker instance for future analysis
-- **[Core Java Apps](./core_java)**: Developed three small Java apps: An app that replicates the recursive grep function found in Linux systems using Java streams, some basic DAO implementations for a JDBC system, and a Twitter CLI App, which utilizes a REST API to post, view, and delete tweets from the Twitter webpage. Each app was managed by Maven, and tested using JUnit and the Mockito framework as needed
-- **[SpringBoot App](./springboot)**: Not started
+- **[Core Java Apps](./core_java)**: Developed three Java applications: An app that replicates the recursive grep function found in Linux systems using Java streams, some basic DAO implementations for a JDBC system, and a Twitter CLI App, which utilizes a REST API to post, view, and delete tweets from the Twitter webpage. Each app was managed by Maven, and tested using JUnit and the Mockito framework as needed
+- **[SpringBoot App](./springboot)**: In-progress
 - **[Cloud & DevOps](./cloud_devops)**: Not started
 - **[Hadoop](./hadoop)**: Not started
 - **[Spark/Scala](./spark)**:  Not started
