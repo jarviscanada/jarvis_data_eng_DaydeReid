@@ -8,13 +8,14 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-//@EnableTransactionManagement
-public class AppConfig {
+@ComponentScan(basePackages = {"ca.jrvs.apps.trading.dao", "ca.jrvs.apps.trading.service"})
+public class TestConfig {
 
-  private final Logger logger = LoggerFactory.getLogger(AppConfig.class);
+  private final Logger logger = LoggerFactory.getLogger(TestConfig.class);
 
   @Bean
   public MarketDataConfig marketDataConfig() {
