@@ -57,7 +57,7 @@ public class SecurityOrderDaoIntTest {
     savedTrader = new Trader();
     savedTrader.setFirstName("John");
     savedTrader.setLastName("Doe");
-    savedTrader.setDob(new Date(2020,7, 7));
+    savedTrader.setDob(new Date(2020, 7, 7));
     savedTrader.setCountry("Canada");
     savedTrader.setEmail("john@doe.ca");
     savedTrader = traderDao.save(savedTrader);
@@ -115,4 +115,9 @@ public class SecurityOrderDaoIntTest {
     assertEquals(testList.get(1), securityOrderDao.findById(testList.get(1).getId()).get());
   }
 
+  @Test
+  public void findAllByAccountId() {
+    List<SecurityOrder> testList = securityOrderDao.findAllByAccountId(savedAccount.getId());
+    assertEquals(savedSecurityOrder, testList.get(0));
+  }
 }

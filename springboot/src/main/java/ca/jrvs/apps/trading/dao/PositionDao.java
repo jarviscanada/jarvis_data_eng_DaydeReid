@@ -65,4 +65,11 @@ public class PositionDao {
     String countSql = "SELECT COUNT(*) FROM " + VIEW_NAME;
     return jdbcTemplate.queryForObject(countSql, Integer.class);
   }
+
+  public List<Position> findAllByAccountId(Integer accountId) {
+    String selectSql = "SELECT * FROM " + VIEW_NAME + " WHERE " + ACCOUNT_ID + "=?";
+    List<Position> positions = jdbcTemplate
+        .query(selectSql, BeanPropertyRowMapper.newInstance(Position.class), accountId);
+    return positions;
+  }
 }

@@ -108,4 +108,10 @@ public class PositionDaoIntTest {
   public void count() {
     assertEquals(1, positionDao.count());
   }
+
+  @Test
+  public void findAllByAccountId() {
+    List<Position> testList = positionDao.findAllByAccountId(savedAccount.getId());
+    assertEquals(savedSecurityOrder.getSize(), testList.get(0).getPosition());
+  }
 }

@@ -77,4 +77,9 @@ public class AccountDaoIntTest {
     assertEquals(testList.get(0), accountDao.findById(testList.get(0).getId()).get());
     assertEquals(testList.get(1), accountDao.findById(testList.get(1).getId()).get());
   }
+
+  @Test
+  public void findByTraderId() {
+    assertEquals(savedAccount, accountDao.findByTraderId(savedTrader.getId()).get());
+  }
 }
