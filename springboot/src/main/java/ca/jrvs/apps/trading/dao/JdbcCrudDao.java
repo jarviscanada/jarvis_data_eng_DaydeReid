@@ -102,7 +102,6 @@ public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepo
         idsString[0] = idsString[0] + ", " + id;
     });
     idsString[0] = idsString[0] + ")";
-    logger.error("idsString "+ idsString[0]);
     String selectSql = "SELECT * FROM " + getTableName() + " WHERE " + getIdColumnName() + " IN " + idsString[0];
     List<T> quotes = getJdbcTemplate()
         .query(selectSql, BeanPropertyRowMapper.newInstance(getEntityClass()));
