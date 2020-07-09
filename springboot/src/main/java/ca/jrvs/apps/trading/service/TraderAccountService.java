@@ -37,11 +37,6 @@ public class TraderAccountService {
    * @throws IllegalArgumentException if the trader has null fields or is null itself
    */
   public TraderAccountView createTraderAndAccount(Trader trader) {
-    System.out.println(trader.getFirstName());
-    System.out.println(trader.getLastName());
-    System.out.println(trader.getDob());
-    System.out.println(trader.getCountry());
-    System.out.println(trader.getEmail());
     if (trader == null || trader.getFirstName() == null || trader.getLastName() == null
         || trader.getDob() == null || trader.getCountry() == null || trader.getEmail() == null) {
       throw new IllegalArgumentException("ERROR: Trader is null or contains null values");
