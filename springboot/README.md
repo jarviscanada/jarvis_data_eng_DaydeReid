@@ -1,10 +1,10 @@
 Table of contents
-* [Introduction](#Introduction)
-* [Quick Start](#Quick Start)
-* [Architecture](#Architecture)
-* [REST API Usage](#REST API Usage)
-* [Docker Deployment](#Docker Deployment)
-* [Improvements](#Improvements)
+* [Introduction](#introduction)
+* [Quick Start](#quick start)
+* [Architecture](#architecture)
+* [REST API Usage](#rest api usage)
+* [Docker Deployment](#docker deployment)
+* [Improvements](#improvements)
 
 # Introduction
 The Jarvis Trading App is an online stock trading simulation. It uses a REST API create and manage trader accounts, which can then be used to make market orders for various
