@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Cycle {
 
   /**
-   * Find the middle node in the linked list using two pointers
+   * Determine if the linked list contains a cycle using two pointers
    * Time Complexity: O(n)
    * Justification: The second pointer visits each node once, plus the first pointer which visits less nodes, makes O(n)
    */
