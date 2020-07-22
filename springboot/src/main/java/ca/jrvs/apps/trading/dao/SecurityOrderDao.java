@@ -1,5 +1,6 @@
 package ca.jrvs.apps.trading.dao;
 
+import ca.jrvs.apps.trading.model.domain.Account;
 import ca.jrvs.apps.trading.model.domain.Position;
 import ca.jrvs.apps.trading.model.domain.SecurityOrder;
 import java.util.List;
@@ -63,7 +64,20 @@ public class SecurityOrderDao extends JdbcCrudDao<SecurityOrder> {
    */
   @Override
   public int updateOne(SecurityOrder entity) {
-    throw new UnsupportedOperationException("Not implemented");
+    String updateSql = "UPDATE " + TABLE_NAME + " SET account_id=?, status=?, ticker=?, size=?, price=?, notes=? WHERE " +ID_COLUMN + "=?";
+    return jdbcTemplate.update(updateSql, getUpdateValues(entity));
+  }
+
+  private Object[] getUpdateValues(SecurityOrder entity) {
+    Object[] updateValues = new Object[7];
+    updateValues[0] = entity.getAccountId();
+    updateValues[1] = entity.getStatus();
+    updateValues[2] = entity.getTicker();
+    updateValues[3] = entity.getSize();
+    updateValues[4] = entity.getPrice();
+    updateValues[5] = entity.getNotes();
+    updateValues[6] = entity.getId();
+    return updateValues;
   }
 
   @Override

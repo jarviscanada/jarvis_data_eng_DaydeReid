@@ -8,7 +8,7 @@ import ca.jrvs.apps.trading.TestConfig;
 import ca.jrvs.apps.trading.dao.AccountDao;
 import ca.jrvs.apps.trading.dao.TraderDao;
 import ca.jrvs.apps.trading.model.domain.Trader;
-import ca.jrvs.apps.trading.view.TraderAccountView;
+import ca.jrvs.apps.trading.model.view.TraderAccountView;
 import java.util.Date;
 import org.junit.After;
 import org.junit.Before;
@@ -48,16 +48,16 @@ public class TraderAccountServiceIntTest {
 
   @After
   public void deleteOne() {
-    accountDao.deleteById(savedView.getAccountId());
-    traderDao.deleteById(savedView.getTraderId());
+    accountDao.deleteById(savedView.getAccount().getId());
+    traderDao.deleteById(savedView.getTrader().getId());
   }
 
   @Test
   public void deposit() {
-    traderAccountService.deposit(savedView.getTraderId(), 200.0);
-    assertEquals((Double) 200.0, accountDao.findById(savedView.getAccountId()).get().getAmount());
+    traderAccountService.deposit(savedView.getTrader().getId(), 200.0);
+    assertEquals((Double) 200.0, accountDao.findById(savedView.getAccount().getId()).get().getAmount());
     try {
-      traderAccountService.deposit(savedView.getTraderId(), -50.0);
+      traderAccountService.deposit(savedView.getTrader().getId(), -50.0);
       fail();
     } catch (IllegalArgumentException ex) {
       assertTrue(true);
@@ -73,14 +73,14 @@ public class TraderAccountServiceIntTest {
   @Test
   public void withdraw() {
     try {
-      traderAccountService.withdraw(savedView.getTraderId(), 200.0);
+      traderAccountService.withdraw(savedView.getTrader().getId(), 200.0);
       fail();
     } catch (IllegalArgumentException ex) {
       assertTrue(true);
     }
-    traderAccountService.deposit(savedView.getTraderId(), 200.0);
+    traderAccountService.deposit(savedView.getTrader().getId(), 200.0);
     try {
-      traderAccountService.withdraw(savedView.getTraderId(), 300.0);
+      traderAccountService.withdraw(savedView.getTrader().getId(), 300.0);
       fail();
     } catch (IllegalArgumentException ex) {
       assertTrue(true);
@@ -91,20 +91,20 @@ public class TraderAccountServiceIntTest {
     } catch (IllegalArgumentException ex) {
       assertTrue(true);
     }
-    traderAccountService.withdraw(savedView.getTraderId(), 200.0);
-    assertEquals((Double) 0.0, accountDao.findById(savedView.getAccountId()).get().getAmount());
+    traderAccountService.withdraw(savedView.getTrader().getId(), 200.0);
+    assertEquals((Double) 0.0, accountDao.findById(savedView.getAccount().getId()).get().getAmount());
   }
 
   @Test
   public void deleteTraderById() {
     try {
-      traderAccountService.deleteTraderById(savedView.getTraderId());
+      traderAccountService.deleteTraderById(savedView.getTrader().getId());
       assertTrue(true);
     } catch (Exception ex) {
       fail();
     }
     try {
-      traderAccountService.deleteTraderById(savedView.getTraderId());
+      traderAccountService.deleteTraderById(savedView.getTrader().getId());
       fail();
     } catch (Exception ex) {
       assertTrue(true);
