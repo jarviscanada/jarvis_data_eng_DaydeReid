@@ -16,9 +16,9 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_DaydeReid]
 
 - **[Cluster Monitor](./linux_sql)**: Implemented a series of bash scripts that record hardware specifications and usage statistics for a Linux cluster and write them to a PSQL database contained in a Docker instance for future analysis
 - **[Core Java Apps](./core_java)**: Developed three Java applications: An app that replicates the recursive grep function found in Linux systems using Java streams, some basic DAO implementations for a JDBC system, and a Twitter CLI App, which utilizes a REST API to post, view, and delete tweets from the Twitter webpage. Each app was managed by Maven, and tested using JUnit and the Mockito framework as needed
-- **[SpringBoot App](./springboot)**: In-progress
+- **[SpringBoot App](./springboot)**: Created a stock trading simulation accessible through a REST API, featuring a three layer Microservice architecture, managed using Maven, and utilizing Spring Boot for dependency injection, testing, as well as its provided webservlet. A PSQL database is used for storing data, which is either created by the app, or, for the stock quotes, pulled from IEX Cloud. For ease of use, the entire app was dockerized, using a container to run the PSQL server and another to run the application itself.
 - **[Cloud & DevOps](./cloud_devops)**: Not started
-- **[Hadoop](./hadoop)**: Not started
+- **[Hadoop](./hadoop)**: In progress
 - **[Spark/Scala](./spark)**:  Not started
 
 ## Professional Experiences
