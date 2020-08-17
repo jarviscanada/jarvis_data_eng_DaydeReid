@@ -26,7 +26,10 @@ These worker nodes contain an Application Master, which is responsible for divid
 tasks to be performed on the worker nodes.
 
 # Hive Project
-- discuss the purposes of the project and what you have done.
+For this project, Apache Hive was evaluated as a big data tool. I compared the effectiveness of Hive queries vs. both
+regular Bash and Spark queries, and also looked into ways of increasing the speed of Hive by using partitions and
+columnar file formats.
+
 ![Hive Zeppelin Notebook](./.assets/zeppelin_notebook.png)
 
 # Improvements
