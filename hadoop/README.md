@@ -27,9 +27,7 @@ tasks to be performed on the worker nodes.
 
 # Hive Project
 - discuss the purposes of the project and what you have done.
-- Post your Zeppelin Notebook screenshot here
-	- Make sure your Notebook is nice and clean as hiring managers will visit your project
-	- use `Full Page Screen Capture` chrome extention to capture a webpage as a picture
+![Hive Zeppelin Notebook](./.assets/zeppelin_notebook.png)
 
 # Improvements
 1. Spend more time with the columnar file types, to better determine when they should or should not be used
