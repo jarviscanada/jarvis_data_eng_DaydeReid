@@ -49,10 +49,10 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_DaydeReid]
 
 ## Education
 **University of Toronto Scarborough (2015-2019)**, Honours Bachelor of Science, Computer Science
+- Dean's List (2016 - 2019)
 
 
 ## Miscellaneous
-- Dean's List (2016 - 20169)
 - Video games
 - Cycling
 - Camping

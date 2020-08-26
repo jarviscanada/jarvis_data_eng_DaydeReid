@@ -1,7 +1,9 @@
 {
   "education": [
     {
-      "awards_achievements": null,
+      "awards_achievements": [
+        "Dean's List (2016 - 2019)"
+      ],
       "degree": "Honours Bachelor of Science",
       "department": "Computer Science",
       "duration": "2015-2019",
@@ -59,12 +61,6 @@
   ],
   "name": "Dayde Reid",
   "others": [
-    {
-      "bullets": [
-        "Dean's List (2016 - 20169)"
-      ],
-      "title": "Awards"
-    },
     {
       "bullets": [
         "Video games",
