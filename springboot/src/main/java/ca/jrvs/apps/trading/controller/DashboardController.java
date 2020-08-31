@@ -54,4 +54,16 @@ public class DashboardController {
       throw ResponseExceptionUtil.getResponseStatusException(e);
     }
   }
+
+  @ApiOperation(value = "Health Check")
+  @GetMapping(path = "/health")
+  @ResponseStatus(HttpStatus.OK)
+  @ResponseBody
+  public String getHeath() {
+    try {
+      return "HEALTH";
+    } catch (Exception e) {
+      throw ResponseExceptionUtil.getResponseStatusException(e);
+    }
+  }
 }
