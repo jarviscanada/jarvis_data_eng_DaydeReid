@@ -83,7 +83,7 @@ public class QuoteController {
   }
 
   @ApiOperation(value = "Show the daily list", notes = "Show the daily list for this trading system.")
-  @GetMapping(path = "/daily_list")
+  @GetMapping(path = "/dailylist")
   @ResponseStatus(HttpStatus.OK)
   @ResponseBody
   public List<Quote> getDailyList() {
