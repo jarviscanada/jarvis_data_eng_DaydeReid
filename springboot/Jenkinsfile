@@ -18,7 +18,7 @@ pipeline {
             }
         }
         stage('Deploy_dev') {
-            when { branch 'develop' }
+            when { branch 'feature/devops_cloud' }
             steps {
                 echo "Current Branch is: ${env.GIT_BRANCH}"
                 sh "bash ./springboot/scripts/eb/eb_deploy.sh ${app_name} TradingApp-env"
