@@ -13,7 +13,7 @@ app_name=$1
 eb_env=$2
 
 rm -rf .elasticbeanstalk
-cd ~/jarvis_data_eng_DaydeReid/springboot/
+ls .
 #init eb for the project
 eb init ${app_name} --platform java --region us-east-2
 eb use ${eb_env}
