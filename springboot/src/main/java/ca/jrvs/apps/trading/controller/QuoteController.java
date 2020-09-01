@@ -81,16 +81,4 @@ public class QuoteController {
       throw ResponseExceptionUtil.getResponseStatusException(ex);
     }
   }
-
-  @ApiOperation(value = "Show the daily list", notes = "Show the daily list for the current trading system.")
-  @GetMapping(path = "/dailylist")
-  @ResponseStatus(HttpStatus.OK)
-  @ResponseBody
-  public List<Quote> getDailyList() {
-    try {
-      return quoteService.findAllQuotes();
-    } catch (Exception ex) {
-      throw ResponseExceptionUtil.getResponseStatusException(ex);
-    }
-  }
 }
