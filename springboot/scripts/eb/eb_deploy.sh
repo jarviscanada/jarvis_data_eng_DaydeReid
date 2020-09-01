@@ -13,7 +13,6 @@ app_name=$1
 eb_env=$2
 
 rm -rf .elasticbeanstalk
-ls .
 #init eb for the project
 eb init ${app_name} --platform java --region us-east-2
 eb use ${eb_env}
@@ -21,7 +20,7 @@ eb use ${eb_env}
 #Edit EB config file which tells EB which artifact to deploy
 cat >> .elasticbeanstalk/config.yml <<_EOF
 deploy:
-  artifact: target/trading-1.0-SNAPSHOT.jar
+  artifact: springboot/target/trading-1.0-SNAPSHOT.jar
 _EOF
 
 #deploy
