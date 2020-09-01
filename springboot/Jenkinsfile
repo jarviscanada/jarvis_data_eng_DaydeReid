@@ -14,7 +14,8 @@ pipeline {
             steps {
                 sh 'cd springboot && mvn clean package -DskipTests'
                 echo "app_name is ${env.app_name} "
-                archiveArtifacts 'springboot/target/*jar'
+                archiveArtifacts 'springboot/target/*zip'
+                archiveArtifacts 'springboot/target/trading-1.0-SNAPSHOT.jar'
             }
         }
         stage('Deploy_dev') {
