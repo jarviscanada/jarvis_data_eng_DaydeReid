@@ -54,4 +54,10 @@ public class DashboardController {
       throw ResponseExceptionUtil.getResponseStatusException(e);
     }
   }
+
+  @GetMapping(path = "/health")
+  @ResponseStatus(HttpStatus.OK)
+  public String getHealth(){
+    return "I'm healthy";
+  }
 }
