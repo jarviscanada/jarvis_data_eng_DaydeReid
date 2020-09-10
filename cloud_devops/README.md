@@ -1,6 +1,6 @@
 # Cloud & DevOps Project
 ## Introduction
-The purpose of this project was to host the previously created [SpringBoot(https://github.com/jarviscanada/jarvis_data_eng_DaydeReid/tree/master/springboot)] 
+The purpose of this project was to host the previously created [SpringBoot](https://github.com/jarviscanada/jarvis_data_eng_DaydeReid/tree/master/springboot)
 application on the cloud, as well as automate the deployment process for it. Since the trading app features a three-tier
 microservice architecture, being divided into Presentation, Application, and Data tiers, it was able to make great use of 
 Amazon Web Service's Application Load Balancers and Auto Scaling Groups, creating new EC2 instances to host the Application tier as needed, with
