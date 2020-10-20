@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    tools {
+        maven "M3"
+        jdk "java8"
+    }
+
+    environment {
+        app_name = 'trading-app'
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'cd springboot && mvn clean package -DskipTests'
+                echo "app_name is ${env.app_name} "
+                archiveArtifacts 'springboot/target/*zip'
+                archiveArtifacts 'springboot/target/trading-1.0-SNAPSHOT.jar'
+            }
+        }
+        stage('Deploy_dev') {
+            when { branch 'feature/cloud_devops' }
+            steps {
+                echo "Current Branch is: ${env.GIT_BRANCH}"
+                sh "bash ./springboot/scripts/eb/eb_deploy.sh ${app_name} TradingApp-env-1"
+            }
+        }
+        stage('Deploy_prod') {
+            when { branch 'develop' }
+            steps {
+                echo "Current Branch is: ${env.GIT_BRANCH}"
+                sh "./springboot/scripts/eb/eb_deploy.sh ${app_name} TradingApp-env-PROD"
+            }
+        }
+    }
+}
