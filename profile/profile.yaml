@@ -20,6 +20,7 @@ skills:
     - HTML
     - Agile/Scrum
     - Git
+    - DataFrames
   # At least 5 skills
   competent:
     - Python
@@ -31,6 +32,7 @@ skills:
     - C ++
     - CSS
     - React
+    - matplotlib
   # At least 5 skills
   familiar:
     - Angular
@@ -65,7 +67,10 @@ jarvis_projects:
     description: "Investigated Apache Spark as a big data evaluation tool, comparing Spark RDDs and Structured APIs in order to determine their effectiveness at manipulating data. Utilized a Google Cloud Computing Hadoop cluster to run comparison queries on the WDI dataset, recording the results in a Zeppelin notebook"
   - name: "Cloud/DevOps"
     git_url: "/cloud_devops"
-    description: "In progress"
+    description: "Hosted the previously created Springboot application using Amazon Web Service services. Specifically, the application layer was managed by AWS Load Balancers and Auto Scaling Groups, in order to create new EC2 instances of the application as needed. To further speed up the provisioning of resources, Elastic Beanstalk was used to manage the different environments, and a Jenkins CI/CD pipeline was created to automate the pulling and building of new application versions"
+  - name: "Python Data Wrangling"
+    git_url: "/python_data_wrangling"
+    description: "Analyzed business data from a retailer's web application through the use of Pandas DataFrames and matplotlib plots in a Jupyter notebook, in order to inform future business decisions"
 
 # List of personal or academic projects
 # Feel free to add more projects
