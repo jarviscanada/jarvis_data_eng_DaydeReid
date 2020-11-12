@@ -30,7 +30,9 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh ' az acr build --image ${IMAGE_NAME} --registry $ACR_NAME --file springboot/Dockerfile .'
+                dir('springboot') {
+                    sh ' az acr build --image ${IMAGE_NAME} --registry $ACR_NAME --file Dockerfile .'
+                }
             }
         }
         stage('Deploy') {
