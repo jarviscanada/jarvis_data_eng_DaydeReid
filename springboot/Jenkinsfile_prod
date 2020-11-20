@@ -1,11 +1,11 @@
 pipeline {
     agent any
     environment {
-        app_name = 'trading-app-dev'
+        app_name = 'trading-app-prod'
         //Init
-        AZ_USER=credentials('AZ_USER_DEV')
-        AZ_PWD=credentials('AZ_PWD_DEV')
-        AZ_TENANT=credentials('AZ_TENANT_DEV')
+        AZ_USER=credentials('AZ_USER_PROD')
+        AZ_PWD=credentials('AZ_PWD_PROD')
+        AZ_TENANT=credentials('AZ_TENANT_PROD')
         //Build
         ACR_NAME='dayderegistry'
         //${BUILD_NUMBER} is a Jenkins built-in env https://bit.ly/32mySlQ
@@ -15,12 +15,12 @@ pipeline {
         RESOURCE_GROUP='daydeAKSGroup'
         CLUSTER_NAME='daydeAKSCluster'
         DOCKER_REPO='dayderegistry.azurecr.io'
-        DEPLOYMENT_NAME='deployment.apps/trading-dev'
+        DEPLOYMENT_NAME='deployment.apps/trading-prod'
     }
     stages {
         stage('SCM') {
             steps {
-                git url: 'https://github.com/jarviscanada/jarvis_data_eng_DaydeReid.git', branch: 'feature/springboot_jenkins_pipeline'
+                git url: 'https://github.com/jarviscanada/jarvis_data_eng_DaydeReid.git', branch: 'develop'
             }
         }
         stage('Init') {
@@ -42,7 +42,7 @@ pipeline {
                 //show cluster info for debugging purposes
                 sh 'kubectl cluster-info'
                 //Deploy the new image
-                sh 'kubectl set image ${DEPLOYMENT_NAME} trading-dev=${DOCKER_REPO}/${IMAGE_NAME}'
+                sh 'kubectl set image ${DEPLOYMENT_NAME} trading-prod=${DOCKER_REPO}/${IMAGE_NAME}'
             }
         }
     }
