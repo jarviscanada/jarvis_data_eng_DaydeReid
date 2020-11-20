@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        app_name = 'trading-app'
+        app_name = 'trading-app-dev'
         //Init
         AZ_USER=credentials('AZ_USER_DEV')
         AZ_PWD=credentials('AZ_PWD_DEV')
@@ -15,7 +15,7 @@ pipeline {
         RESOURCE_GROUP='daydeAKSGroup'
         CLUSTER_NAME='daydeAKSCluster'
         DOCKER_REPO='dayderegistry.azurecr.io'
-        DEPLOYMENT_NAME='deployment.apps/trading-app-dev'
+        DEPLOYMENT_NAME='deployment.apps/trading'
     }
     stages {
         stage('SCM') {
@@ -42,7 +42,7 @@ pipeline {
                 //show cluster info for debugging purposes
                 sh 'kubectl cluster-info'
                 //Deploy the new image
-                sh 'kubectl set image ${DEPLOYMENT_NAME} springboot-demo-app=${DOCKER_REPO}/${IMAGE_NAME}'
+                sh 'kubectl set image ${DEPLOYMENT_NAME} trading=${DOCKER_REPO}/${IMAGE_NAME}'
             }
         }
     }

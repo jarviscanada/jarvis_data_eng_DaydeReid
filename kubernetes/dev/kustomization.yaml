@@ -1,0 +1,8 @@
+secretGenerator:
+- name: trading-app-dev
+  literals:
+  - password=wunderkind
+  - user=trading
+  - IEX_PUB_TOKEN=pk_19edb055149745b4bd0e7d873a2c40a2
+resources:
+  - trading-deployment-dev.yaml

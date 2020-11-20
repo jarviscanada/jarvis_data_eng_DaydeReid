@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: trading-dev
+  labels:
+    app: trading-dev
+spec:
+  selector:
+    app: trading-dev
+    tier: app-server
+  ports:
+  - port: 80
+    targetPort: 8080
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trading-dev
+  labels:
+    app: trading-dev
+spec:
+  selector:
+    matchLabels:
+      app: trading-dev
+      tier: app-server
+  strategy:
+    type: Recreate
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: trading-dev
+        tier: app-server
+    spec:
+      containers:
+      - image: dayderegistry.azurecr.io/trading-app:latest
+        name: trading-dev
+        env:
+        - name: PSQL_URL
+          value: jdbc:postgresql://dayde-psql-dev-postgresql.default.svc.cluster.local:5432/jrvstrading
+        - name: PSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: trading-app-dev
+              key: user
+        - name: PSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: trading-app-dev
+              key: password
+        - name: IEX_PUB_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: trading-app-dev
+              key: IEX_PUB_TOKEN
+        ports:
+        - containerPort: 5000
+          name: trading-dev
+    
+
