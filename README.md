@@ -4,9 +4,9 @@ I am a recent graduate of the University of Toronto, where I earned my Honours B
 
 ## Skills
 
-**Proficient:** Java, Javascript, Linux/Bash, Springboot, RDBMS/SQL, HTML, Agile/Scrum, Git
+**Proficient:** Java, Javascript, Linux/Bash, Springboot, RDBMS/SQL, HTML, Agile/Scrum, Git, DataFrames
 
-**Competent:** Python, Apache Hive, Hadoop, Scala, Apache Spark, C, C ++, CSS, React
+**Competent:** Python, Apache Hive, Hadoop, Scala, Apache Spark, C, C ++, CSS, React, matplotlib
 
 **Familiar:** Angular, Android, iOS, Swift, Matlab, Haskell, Django
 
@@ -29,7 +29,9 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_DaydeReid]
 
 **Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DaydeReid/tree/master/spark)]: Investigated Apache Spark as a big data evaluation tool, comparing Spark RDDs and Structured APIs in order to determine their effectiveness at manipulating data. Utilized a Google Cloud Computing Hadoop cluster to run comparison queries on the WDI dataset, recording the results in a Zeppelin notebook
 
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DaydeReid/tree/master/cloud_devops)]: In progress
+**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DaydeReid/tree/master/cloud_devops)]: Hosted the previously created Springboot application using Amazon Web Service services. Specifically, the application layer was managed by AWS Load Balancers and Auto Scaling Groups, in order to create new EC2 instances of the application as needed. To further speed up the provisioning of resources, Elastic Beanstalk was used to manage the different environments, and a Jenkins CI/CD pipeline was created to automate the pulling and building of new application versions
+
+**Python Data Wrangling** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DaydeReid/tree/master/python_data_wrangling)]: Analyzed business data from a retailer's web application through the use of Pandas DataFrames and matplotlib plots in a Jupyter notebook, in order to inform future business decisions
 
 
 ## Highlighted Projects
